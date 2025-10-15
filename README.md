@@ -1,4 +1,4 @@
-# 🍱 Hybrid Communication in Microservices  
+# Hybrid Communication in Microservices  
 ### Comparing REST-Only vs Hybrid (REST + Event-Driven) Architectures
 
 ---
