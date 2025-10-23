@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/gateway" />
+        <option name="gradleJvm" value="ms-21" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/gateway" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/menu-service" />
+        <option name="gradleJvm" value="ms-21" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/menu-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/notifications-service" />
+        <option name="gradleJvm" value="ms-21" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/notifications-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/orders-service" />
+        <option name="gradleJvm" value="ms-21" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/orders-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/payments-service" />
+        <option name="gradleJvm" value="ms-21" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/payments-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
