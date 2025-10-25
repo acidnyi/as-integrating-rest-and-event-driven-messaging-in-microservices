@@ -1,0 +1,99 @@
+name: as-rest-dbs
+
+services:
+  menu_db:
+    image: postgres:${POSTGRES_VERSION}
+    container_name: ${MENU_DB}
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${MENU_USER}
+      POSTGRES_DB: ${MENU_DB}
+      POSTGRES_PASSWORD: ${MENU_PASSWORD}
+      PG_DATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "${HOST_PG_PORT_MENU:-5542}:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 20s
+    volumes:
+      - menu_db_data:/var/lib/postgresql/data
+    networks:
+      - as-rest-net
+
+  orders_db:
+    image: postgres:${POSTGRES_VERSION}
+    container_name: ${ORDERS_DB}
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${ORDERS_USER}
+      POSTGRES_DB: ${ORDERS_DB}
+      POSTGRES_PASSWORD: ${ORDERS_PASSWORD}
+      PG_DATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "${HOST_PG_PORT_ORDERS}:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 20s
+    volumes:
+      - orders_db_data:/var/lib/postgresql/data
+    networks:
+      - as-rest-net
+
+  payments_db:
+    image: postgres:${POSTGRES_VERSION}
+    container_name: ${PAYMENTS_DB}
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${PAYMENTS_USER}
+      POSTGRES_DB: ${PAYMENTS_DB}
+      POSTGRES_PASSWORD: ${PAYMENTS_PASSWORD}
+      PG_DATA: /var/lib/postgresql/data/pgdata
+    healthcheck:
+      test: ["CMD", "pg_isready"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 20s
+    ports:
+      - "${HOST_PG_PORT_PAYMENTS}:5432"
+    volumes:
+      - payments_db_data:/var/lib/postgresql/data
+    networks:
+      - as-rest-net
+
+  notif_db:
+    image: postgres:${POSTGRES_VERSION}
+    container_name: ${NOTIF_DB}
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${NOTIF_USER}
+      POSTGRES_DB: ${NOTIF_DB}
+      POSTGRES_PASSWORD: ${NOTIF_PASSWORD}
+      PG_DATA: /var/lib/postgresql/data/pgdata
+    healthcheck:
+      test: ["CMD", "pg_isready"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 20s
+    ports:
+      - "${HOST_PG_PORT_NOTIF}:5432"
+    volumes:
+      - notif_db_data:/var/lib/postgresql/data
+    networks:
+      - as-rest-net
+
+networks:
+  as-rest-net:
+
+volumes:
+  menu_db_data:
+  orders_db_data:
+  payments_db_data:
+  notif_db_data:
